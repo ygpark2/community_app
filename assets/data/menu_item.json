@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "textLabel": "replyInboxLabel",
+    "icon": "twotone_inbox.png"
+  },
+  {
+    "id": 2,
+    "textLabel": "replyStarredLabel",
+    "icon": "twotone_star.png"
+  },
+  {
+    "id": 3,
+    "textLabel": "replySentLabel",
+    "icon": "twotone_send.png"
+  },
+  {
+    "id": 3,
+    "textLabel": "replyTrashLabel",
+    "icon": "twotone_delete.png"
+  },
+  {
+    "id": 3,
+    "textLabel": "replySpamLabel",
+    "icon": "twotone_error.png"
+  },
+  {
+    "id": 3,
+    "textLabel": "replyDraftsLabel",
+    "icon": "twotone_drafts.png"
+  }
+]

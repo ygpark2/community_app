@@ -1,0 +1,55 @@
+GET _search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET _search
+{
+  "query": {
+    "match": {
+      "title": {
+        "query": "wind",
+        "fuzziness": "AUTO",
+        "fuzzy_transpositions": true,
+        "operator":  "or",
+        "minimum_should_match": 1,
+        "analyzer": "standard",
+        "zero_terms_query": "none",
+        "lenient": false,
+        "cutoff_frequency": 0.01,
+        "prefix_length": 0,
+        "max_expansions": 50,
+        "boost": 1
+      }
+    }
+  }
+}
+
+GET _tasks
+
+
+GET _opendistro/_security/api/account
+
+GET _opendistro/_security/api/actiongroups/
+
+GET _opendistro/_security/api/internalusers/ygpark2
+
+GET _opendistro/_security/api/internalusers/
+
+DELETE _opendistro/_security/api/internalusers/readall
+
+GET _opendistro/_security/api/securityconfig
+
+PUT _plugins/_security/api/internalusers/ygpark2
+{
+  "password": "Pyg1883@2",
+  "opendistro_security_roles": [],
+  "backend_roles": ["own_index"],
+  "attributes": {
+    "attribute1": "value1",
+    "attribute2": "value2"
+  }
+}
+

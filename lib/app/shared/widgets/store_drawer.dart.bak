@@ -1,0 +1,49 @@
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:commune_app/app/modules/common/common/utils/named_routes.dart';
+import 'package:list_stores/domain/entities/store_entity.dart';
+
+class StoreDrawer extends StatelessWidget {
+  final Widget child;
+
+  const StoreDrawer({Key key, this.child})
+      : super(key: key);
+
+  Drawer createMenuItems(BuildContext context) {
+    createNavigationItem(var icon, String page, Future<Object> _onTap) {
+      return ListTile(
+        leading: Icon(icon),
+        title: Text(
+          page,
+          textDirection: TextDirection.ltr,
+        ),
+        onTap: () => _onTap,
+      );
+    }
+
+    var navigationList = [
+      createNavigationItem(
+          Icons.account_box, "Customers",
+          Modular.to.pushNamed(
+              Modular.get<NamedRoutes>().newStorePage,
+              arguments: StoreEntity())),
+      createNavigationItem(Icons.shop, "Products", Modular.to.pushNamed(
+          Modular.get<NamedRoutes>().updateStorePage)),
+      createNavigationItem(Icons.home, "Home", Modular.to.pushNamed(
+          Modular.get<NamedRoutes>().homePage)),
+    ];
+
+    ListView menuItems = new ListView(
+      children: navigationList,
+    );
+    return Drawer(child: menuItems,);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: createMenuItems(context),
+    );
+  }
+}

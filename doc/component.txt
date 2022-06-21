@@ -1,0 +1,101 @@
+
+
+PUT _component_template/path_component_template
+{
+  "template": {
+    "settings": {
+      "analysis": {
+        "analyzer": {
+          "path_tree": {
+            "tokenizer": "path_hierarchy"
+          },
+          "path_tree_reversed": {
+            "tokenizer": "path_hierarchy_reversed"
+          }
+        },
+        "tokenizer": {
+          "path_hierarchy": {
+            "type": "path_hierarchy",
+            "delimiter": "/"
+          },
+          "path_hierarchy_reversed": {
+            "type": "path_hierarchy",
+            "delimiter": "/",
+            "reverse": "true"
+          }
+        }
+      }
+    }
+  }
+}
+  
+PUT _component_template/ko_nori_component_template
+{
+  "template": {
+    "settings": {
+        "index": {
+        "analysis": {
+          "analyzer": {
+            "nori_ko": {
+              "type": "custom",
+              "tokenizer": "nori_tokenizer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "version": 1,
+  "_meta": {
+    "description": "ko nori analyzer"
+  }
+}
+
+PUT _component_template/timestamp_component_template
+{
+  "template": {
+    "mappings": {
+      "properties": {
+        "@timestamp": {
+            "type": "date",           
+            "format": "yyyy-MM-dd HH:mm:ss"
+        },
+        "@version": {
+            "doc_values": true,
+            "index": "false",
+            "type": "text"
+        },
+        "logLevel": {
+            "type": "long"
+        }
+      }
+    }
+  }
+}
+
+PUT _component_template/geo_location_component_template
+{
+  "template": {
+    "mappings": {
+      "properties": {
+        "geo_loc": {
+          "type": "geo_point"
+        }
+      }
+    }
+  }
+}
+
+PUT _component_template/ip_component_template
+{
+  "template": {
+    "mappings": {
+      "properties": {
+        "ip_address": {
+          "type": "ip"
+        }
+      }
+    }
+  }
+}
+
